@@ -1,0 +1,54 @@
+local ScreenGui = Instance.new("ScreenGui")
+local ToggleFrame = Instance.new("Frame")
+local ToggleButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ToggleFrame.Parent = ScreenGui
+ToggleFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+ToggleFrame.BorderSizePixel = 0
+ToggleFrame.Position = UDim2.new(0.5, -75, 0.1, 0)
+ToggleFrame.Size = UDim2.new(0, 150, 0, 50)
+ToggleFrame.Active = true
+ToggleFrame.Draggable = true
+
+ToggleButton.Parent = ToggleFrame
+ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 85, 85)
+ToggleButton.Size = UDim2.new(1, 0, 1, 0)
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.Text = "OFF"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.TextSize = 18
+ToggleButton.BorderSizePixel = 0
+
+UICorner.Parent = ToggleFrame
+UICorner.CornerRadius = UDim.new(0, 8)
+
+local UICorner2 = UICorner:Clone()
+UICorner2.Parent = ToggleButton
+
+local toggled = false
+local loopConnection
+
+ToggleButton.MouseButton1Click:Connect(function()
+    toggled = not toggled
+    
+    if toggled then
+        ToggleButton.Text = "ON"
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+        
+        loopConnection = game:GetService("RunService").Heartbeat:Connect(function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Build-A-Plane-BUILD-A-PLANE-LEAK-REMOTE-52870"))()
+        end)
+    else
+        ToggleButton.Text = "OFF"
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 85, 85)
+        
+        if loopConnection then
+            loopConnection:Disconnect()
+            loopConnection = nil
+        end
+    end
+end)
