@@ -1,0 +1,4 @@
+local args = {
+	Instance.new("Part", nil)
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SpinEvents"):WaitForChild("PreformSpin"):FireServer(unpack(args))
