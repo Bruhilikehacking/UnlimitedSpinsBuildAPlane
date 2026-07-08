@@ -40,7 +40,7 @@ ToggleButton.MouseButton1Click:Connect(function()
         ToggleButton.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
         
         loopConnection = game:GetService("RunService").Heartbeat:Connect(function()
-            loadstring(game:HttpGet("https://rawscripts.net/raw/Build-A-Plane-BUILD-A-PLANE-LEAK-REMOTE-52870"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Bruhilikehacking/UnlimitedSpinsBuildAPlane/refs/heads/main/SpinsLeakedRemote"))()
         end)
     else
         ToggleButton.Text = "OFF"
